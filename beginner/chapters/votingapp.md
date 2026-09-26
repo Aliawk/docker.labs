@@ -34,60 +34,40 @@ docker swarm init
 Next, you will need a [Docker Compose](https://docs.docker.com/compose) file. You don't need Docker Compose installed, though if you are using Docker for Mac or Docker for Windows you have it installed. However, `docker stack deploy` accepts a file in the Docker Compose format. The file you need is in Docker Example Voting App at the root level. It's called docker-stack.yml. You can also just copy and paste it from here:
 
 ```
-version: "3"
+version: "3.9"
+
 services:
 
   redis:
     image: redis:alpine
-    ports:
-      - "6379"
     networks:
       - frontend
-    deploy:
-      replicas: 2
-      update_config:
-        parallelism: 2
-        delay: 10s
-      restart_policy:
-        condition: on-failure
+
   db:
-    image: postgres:9.4
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
     volumes:
       - db-data:/var/lib/postgresql/data
     networks:
       - backend
-    deploy:
-      placement:
-        constraints: [node.role == manager]
+
   vote:
-    image: dockersamples/examplevotingapp_vote:before
+    image: dockersamples/examplevotingapp_vote
     ports:
-      - 5000:80
+      - 8080:80
     networks:
       - frontend
-    depends_on:
-      - redis
     deploy:
       replicas: 2
-      update_config:
-        parallelism: 2
-      restart_policy:
-        condition: on-failure
+
   result:
-    image: dockersamples/examplevotingapp_result:before
+    image: dockersamples/examplevotingapp_result
     ports:
-      - 5001:80
+      - 8081:80
     networks:
       - backend
-    depends_on:
-      - db
-    deploy:
-      replicas: 1
-      update_config:
-        parallelism: 2
-        delay: 10s
-      restart_policy:
-        condition: on-failure
 
   worker:
     image: dockersamples/examplevotingapp_worker
@@ -95,27 +75,7 @@ services:
       - frontend
       - backend
     deploy:
-      mode: replicated
-      replicas: 1
-      labels: [APP=VOTING]
-      restart_policy:
-        condition: on-failure
-        delay: 10s
-        max_attempts: 3
-        window: 120s
-      placement:
-        constraints: [node.role == manager]
-
-  visualizer:
-    image: dockersamples/visualizer
-    ports:
-      - "8080:8080"
-    stop_grace_period: 1m30s
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    deploy:
-      placement:
-        constraints: [node.role == manager]
+      replicas: 2
 
 networks:
   frontend:
@@ -123,6 +83,7 @@ networks:
 
 volumes:
   db-data:
+
 ```
 
 First deploy it, and then we will look more deeply into the details:

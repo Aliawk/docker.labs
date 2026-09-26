@@ -202,18 +202,18 @@ app = Flask(__name__)
 
 # list of cat images
 images = [
-   "http://img.buzzfeed.com/buzzfeed-static/static/2013-10/enhanced/webdr05/15/9/anigif_enhanced-buzz-26388-1381844103-11.gif",
-    "http://img.buzzfeed.com/buzzfeed-static/static/2013-10/enhanced/webdr01/15/9/anigif_enhanced-buzz-31540-1381844535-8.gif",
-    "http://img.buzzfeed.com/buzzfeed-static/static/2013-10/enhanced/webdr05/15/9/anigif_enhanced-buzz-26390-1381844163-18.gif",
-    "http://img.buzzfeed.com/buzzfeed-static/static/2013-10/enhanced/webdr06/15/10/anigif_enhanced-buzz-1376-1381846217-0.gif",
-    "http://img.buzzfeed.com/buzzfeed-static/static/2013-10/enhanced/webdr03/15/9/anigif_enhanced-buzz-3391-1381844336-26.gif",
-    "http://img.buzzfeed.com/buzzfeed-static/static/2013-10/enhanced/webdr06/15/10/anigif_enhanced-buzz-29111-1381845968-0.gif",
-    "http://img.buzzfeed.com/buzzfeed-static/static/2013-10/enhanced/webdr03/15/9/anigif_enhanced-buzz-3409-1381844582-13.gif",
-    "http://img.buzzfeed.com/buzzfeed-static/static/2013-10/enhanced/webdr02/15/9/anigif_enhanced-buzz-19667-1381844937-10.gif",
-    "http://img.buzzfeed.com/buzzfeed-static/static/2013-10/enhanced/webdr05/15/9/anigif_enhanced-buzz-26358-1381845043-13.gif",
-    "http://img.buzzfeed.com/buzzfeed-static/static/2013-10/enhanced/webdr06/15/9/anigif_enhanced-buzz-18774-1381844645-6.gif",
-    "http://img.buzzfeed.com/buzzfeed-static/static/2013-10/enhanced/webdr06/15/9/anigif_enhanced-buzz-25158-1381844793-0.gif",
-    "http://img.buzzfeed.com/buzzfeed-static/static/2013-10/enhanced/webdr03/15/10/anigif_enhanced-buzz-11980-1381846269-1.gif"
+   "[http://img.buzzfeed.com/buzzfeed-static/static/2013-10/enhanced/webdr05/15/9/anigif_enhanced-buzz-26388-1381844103-11.gif](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHlpejJ2MXhwamNkcjgxdXpjdDNhNWVuZjN4NWh2OXVucTg0eHdpYiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/tphCApwvdtC1VJabZ1/giphy.gif)",
+    "[http://img.buzzfeed.com/buzzfeed-static/static/2013-10/enhanced/webdr01/15/9/anigif_enhanced-buzz-31540-1381844535-8.gif](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHlpejJ2MXhwamNkcjgxdXpjdDNhNWVuZjN4NWh2OXVucTg0eHdpYiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/gSQp32H82WETR5EFO6/giphy.gif)",
+    "[http://img.buzzfeed.com/buzzfeed-static/static/2013-10/enhanced/webdr05/15/9/anigif_enhanced-buzz-26390-1381844163-18.gif](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHlpejJ2MXhwamNkcjgxdXpjdDNhNWVuZjN4NWh2OXVucTg0eHdpYiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/goZDkNssE24sWUiAiO/giphy.gif)",
+    "[http://img.buzzfeed.com/buzzfeed-static/static/2013-10/enhanced/webdr06/15/10/anigif_enhanced-buzz-1376-1381846217-0.gif](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHlpejJ2MXhwamNkcjgxdXpjdDNhNWVuZjN4NWh2OXVucTg0eHdpYiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/cbm0J4DEIqKHsKxYHA/giphy.gif)",
+    "[http://img.buzzfeed.com/buzzfeed-static/static/2013-10/enhanced/webdr03/15/9/anigif_enhanced-buzz-3391-1381844336-26.gif](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHlpejJ2MXhwamNkcjgxdXpjdDNhNWVuZjN4NWh2OXVucTg0eHdpYiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ytu2GUYbvhz7zShGwS/giphy.gif)",
+    "[http://img.buzzfeed.com/buzzfeed-static/static/2013-10/enhanced/webdr06/15/10/anigif_enhanced-buzz-29111-1381845968-0.gif](https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3MzJkZ3B6Z2phMGdkYXB3aTQ1ZGNzeDdla3RzaGg1Mm00d2t0aHJ5YiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/1OrIIOIcRTDaNidc5p/giphy.gif)",
+    "[http://img.buzzfeed.com/buzzfeed-static/static/2013-10/enhanced/webdr03/15/9/anigif_enhanced-buzz-3409-1381844582-13.gif](https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3MzJkZ3B6Z2phMGdkYXB3aTQ1ZGNzeDdla3RzaGg1Mm00d2t0aHJ5YiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/GRk3GLfzduq1NtfGt5/giphy.gif)",
+    "[http://img.buzzfeed.com/buzzfeed-static/static/2013-10/enhanced/webdr02/15/9/anigif_enhanced-buzz-19667-1381844937-10.gif](https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3dXFsamN1enpkeHcyZTJtOTV4end1dTd1dWM1ZHJtY2FkaTRmbjBweiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/YLPOIP1jPu1N87yemm/giphy.gif)",
+    "[http://img.buzzfeed.com/buzzfeed-static/static/2013-10/enhanced/webdr05/15/9/anigif_enhanced-buzz-26358-1381845043-13.gif](https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3dXFsamN1enpkeHcyZTJtOTV4end1dTd1dWM1ZHJtY2FkaTRmbjBweiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/jfKiMjWolBzuWkdbw0/giphy.gif)",
+    "[http://img.buzzfeed.com/buzzfeed-static/static/2013-10/enhanced/webdr06/15/9/anigif_enhanced-buzz-18774-1381844645-6.gif](https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3aHo0eTU5NGE5aWhqN3JoNDFhanJwY2Y2OXcybXd4ZnpuZ29zb2E2dCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/mcsPU3SkKrYDdW3aAU/giphy.gif)",
+    "[http://img.buzzfeed.com/buzzfeed-static/static/2013-10/enhanced/webdr06/15/9/anigif_enhanced-buzz-25158-1381844793-0.gif](https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3c3lqb24yb203bmo3YWc2cGQ5MHdzejJrenpvYm5kcDI1ZThkcjFuNCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/X7Bckr1JaJS1opWTzO/giphy.gif)",
+    "[http://img.buzzfeed.com/buzzfeed-static/static/2013-10/enhanced/webdr03/15/10/anigif_enhanced-buzz-11980-1381846269-1.gif](https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3bzN3aW9wdGRheTl1bHBkaWx4dzQ1M3o0ZjZod3RtdGhrdzI1ZTJlaCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/TMyp3xOTzRJO4lgNT8/giphy.gif)"
     ]
 
 @app.route('/')
